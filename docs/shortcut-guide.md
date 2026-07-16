@@ -39,6 +39,31 @@ https://你的worker域名/
 
 ---
 
+## 创建自己的快捷指令
+
+不要直接使用写死了他人 Worker 域名的共享快捷指令。先部署你自己的 Worker，再在 iOS「快捷指令」中创建以下两条流程。
+
+### 设置地理位置
+
+1. 开启「在共享表单中显示」，接收 URL、文本和地图链接。
+2. 对共享进来的地图链接进行 URL 编码。
+3. 使用「获取 URL 内容」请求：
+   `https://<你的-worker-域名>/api/parse?format=json&u=<URL编码后的地图链接>`
+4. 从 JSON 结果读取 `lat`、`lon` 和 `name`。
+5. 再使用「获取 URL 内容」请求：
+   `https://gs-loc.apple.com/wloc-settings/save?lat=<lat>&lon=<lon>&acc=25`
+6. 显示通知，确认已切换到解析后的地点。
+
+### 恢复真实定位
+
+1. 使用「获取 URL 内容」请求：
+   `https://gs-loc.apple.com/wloc-settings/save?action=clear`
+2. 显示已清除的通知。
+
+> 上述 `gs-loc.apple.com/wloc-settings/save` 请求必须在代理模块已启用时执行，由本地脚本拦截并写入 `$persistentStore`。如果模块未生效，不要继续重试。
+
+---
+
 ## 部署公共选点页面
 
 Worker 是纯静态页面服务，无需任何绑定：
