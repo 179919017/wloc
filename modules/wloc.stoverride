@@ -1,8 +1,8 @@
 name: Apple WLOC 定位修改
-desc: "修改 Apple 网络定位返回坐标 | yang689 独立维护版 | 选点页面请使用自部署 Worker"
-author: yang689
-homepage: https://github.com/yang689/wloc
-icon: https://raw.githubusercontent.com/yang689/wloc/refs/heads/main/wloc.jpg
+desc: "修改 Apple 网络定位返回坐标 | 179919017 独立维护版 | 选点页面请使用自部署 Worker"
+author: 179919017
+homepage: https://github.com/179919017/wloc
+icon: https://raw.githubusercontent.com/179919017/wloc/refs/heads/main/wloc.jpg
 category: Tools
 
 http:
@@ -26,8 +26,8 @@ http:
 
 script-providers:
   WLOC.Location:
-    url: https://raw.githubusercontent.com/yang689/wloc/refs/heads/main/dist/wloc.js
+    url: https://raw.githubusercontent.com/179919017/wloc/refs/heads/main/dist/wloc.js
     interval: 86400
   WLOC.Settings:
-    url: https://raw.githubusercontent.com/yang689/wloc/refs/heads/main/dist/wloc-settings.js
+    url: https://raw.githubusercontent.com/179919017/wloc/refs/heads/main/dist/wloc-settings.js
     interval: 86400
